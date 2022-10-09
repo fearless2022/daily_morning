@@ -1,12 +1,11 @@
+import argparse
 import os
+import schedule
+import signal
+import subprocess
 import sys
 import time
 import yaml
-import argparse
-import subprocess
-import schedule
-import signal
-
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--cfg', type=str, default='config.yaml')
@@ -22,8 +21,9 @@ def send_message_now(env):
 def signal_handler(signum, frame):
     print("\n程序结束！")
     sys.exit(0)
-signal.signal(signal.SIGINT, signal_handler)
 
+
+signal.signal(signal.SIGINT, signal_handler)
 
 if __name__ == '__main__':
     with open(args.cfg, "r", encoding="utf-8") as fd:
@@ -42,4 +42,4 @@ if __name__ == '__main__':
 
     while True:
         schedule.run_pending()
-        time.sleep(50) # wait
+        time.sleep(50)  # wait
