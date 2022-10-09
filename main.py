@@ -106,7 +106,7 @@ def get_random_color():
 def split_birthday():
     if birthday is None:
         return None
-    return birthday.split(' ')
+    return birthday.split('\n')
 
 
 weather = get_weather()
