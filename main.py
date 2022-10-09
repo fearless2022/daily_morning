@@ -7,8 +7,8 @@ from datetime import date, datetime, timedelta
 from wechatpy import WeChatClient, WeChatClientException
 from wechatpy.client.api import WeChatMessage
 
-nowtime = datetime.utcnow() + timedelta(hours=8)  # 东八区时间
-today = datetime.strptime(str(nowtime.date()), "%Y-%m-%d")  # 今天的日期
+now_time = datetime.utcnow() + timedelta(hours=8)  # 东八区时间
+today = datetime.strptime(str(now_time.date()), "%Y-%m-%d")  # 今天的日期
 
 start_date = os.getenv('START_DATE')
 city = os.getenv('CITY')
@@ -75,11 +75,11 @@ def get_counter_left(aim_date):
         next = datetime.strptime(str(date.today().year) + "-" + aim_date, "%Y-%m-%d")
     elif re.match(r'^\d{2,4}\-\d{1,2}\-\d{1,2}$', aim_date):
         next = datetime.strptime(aim_date, "%Y-%m-%d")
-        next = next.replace(nowtime.year)
+        next = next.replace(now_time.year)
     else:
         print('日期格式不符合要求')
 
-    if next < nowtime:
+    if next < now_time:
         next = next.replace(year=next.year + 1)
     return (next - today).days
 
