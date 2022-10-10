@@ -12,11 +12,11 @@
 
 空气质量：{{ air_quality.DATA }}
 
-当前温度：{{ temperature.DATA }}
+当前温度：{{ temperature.DATA }} ℃
 
-最低气温：{{ lowest.DATA }}
+最低气温：{{ lowest.DATA }} ℃
 
-最高气温：{{ highest.DATA }}
+最高气温：{{ highest.DATA }} ℃
 
 我们已经相恋 {{ love_days.DATA }} 天啦
 
