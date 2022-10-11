@@ -1,8 +1,11 @@
 name: morning
 on:
   schedule:
-    - cron: '0 0 * * *'
+    - cron: '0 17 * * *'
   workflow_dispatch:
+
+env:
+  TZ: Asia/Shanghai # 设置当前环境时区
 
 jobs:
   send_message:
